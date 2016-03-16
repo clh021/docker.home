@@ -1,0 +1,53 @@
+﻿debug off
+checkrange 0x21 read 0x8280 && pxe keep
+call Fn.0 0x40000 "!BAT\necho -P:0000 $[0000]\t\t\t\t\t\t\t\t\t\0" && initscript (md)0x200+1
+font /ILMT/GRUB/FONT_CN.HEX
+graphicsmode -1 640:800 480:600 32
+splashimage /ILMT/GRUB/BACK.LZMA || splashimage /ILMT/GRUB/BACK.BMP || find --set-root /ILMT/GRUB/BACK.LZMA && splashimage /ILMT/GRUB/BACK.LZMA || find --set-root /ILMT/GRUB/BACK.BMP && splashimage /ILMT/GRUB/BACK.BMP
+terminal --font-spacing=0:3
+color normal=31 highlight=0x0D helptext=0x0D heading=0x0A standard=0x0F border=0x0E
+set com=/ILMT/GRUB/
+cat --length=0 %?_BOOT%%com%RUN && set root=%?_BOOT% ! cat --length=0 %@root%%com%RUN && set root=%@root% ! find --set-root %com%RUN
+set com= && set root= && command --set-path=%root%%com%
+command /ILMT/GRUB/menuset x=12 w=78 y=15 h=19 b=26 n=2
+
+default 2
+write 0x8274 0
+
+title      User Menu                                lllll     lll lllll \n
+clear
+
+title [01] 返回老毛桃U盘启动主菜单                  lllllllllllll llll \n 返回主菜单
+configfile (md)4+8
+
+title [10] 启动第二菜单                                 llllll lll \n 自备 BOOT.LST 文件，放在 /BOOT/GRUB/ 目录下
+command RUN /BOOT/GRUB/BOOT.LST
+
+title [15] 列出/ISOS/目录下的所有ISO文件           lllllll        llllllll \n 自动菜单方式
+command RUN --automenu --show.iso /isos/
+
+title [17] 列出目前所有可用设备 \n 自动菜单方式
+command RUN --automenu-all
+
+title [22] 列出目前所有可用设备 \n 自动列表方式
+command RUN --autolist-all
+
+title linuxmint-17.2-cinnamon-64bit.iso
+find --set-root /ISOS/linuxmint/vmlinuz
+kernel /ISOS/linuxmint/vmlinuz boot=casper iso-scan/filename=/ISOS/linuxmint-17.2-cinnamon-64bit.iso ro quiet locale=zh_CN.UTF-8
+initrd /ISOS/linuxmint/initrd.lz
+
+title deepin_2014.3_amd64.iso
+find --set-root /ISOS/deepin2014/VMLINUZ
+kernel /ISOS/deepin2014/VMLINUZ boot=casper iso-scan/filename=/ISOS/deepin_2014.3_amd64.iso ro quiet locale=zh_CN.UTF-8
+initrd /ISOS/deepin2014/INITRD.LZ
+
+title deepin_2015_amd64.iso
+find --set-root /ISOS/deepin2015/VMLINUZ
+kernel /ISOS/deepin2015/VMLINUZ boot=casper iso-scan/filename=/ISOS/deepin_2015_amd64.iso ro quiet locale=zh_CN.UTF-8
+initrd /ISOS/deepin2015/INITRD.LZ
+
+title Fedora-Live-MATE_Compiz-x86_64-22-3.iso
+find --set-root /ISOS/fedora/vmlinuz0
+kernel /ISOS/fedora/vmlinuz0 ro root=LABEL=/1  rhgb quiet
+initrd /ISOS/fedora/initrd0.img

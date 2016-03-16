@@ -1,0 +1,5 @@
+wget -r -p -k -nc -o laravel-china.org.down.log http://laravel-china.org/docs
+
+wget -r -p -k -nc -o administrator.frozennode.com.down.log http://administrator.frozennode.com/docs
+
+wget -r -p -k -nc -o laravel.com.down.log http://laravel.com/api/4.2

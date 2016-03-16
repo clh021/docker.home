@@ -1,0 +1,7 @@
+refer="https://dynamic.12306.cn/otsweb/loginAction.do?method=init"
+ua="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+user_name="XXXX" #12306 username
+password="****" #password for 12306
+url="https://dynamic.12306.cn/otsweb/loginAction.do?method=login"
+form="loginUser.user_name=${user_name}&nameErrorFocus=&user.password=${password}&passwordErrorFocus=&randCode=${randcode}&randErrorFocus="
+curl -k -L -A "$ua" -b "$cookie" -o $page -d "${form}" -e "$refer" "$url"
