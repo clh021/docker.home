@@ -8,6 +8,7 @@ RUN echo "deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe 
 #安装Yii需要的扩展
 RUN apt-get update \
     && apt-get -y install php5-gd libpng12-dev libfreetype6-dev zlib1g-dev libicu-dev libmagickwand-dev imagemagick php5-imagick php5-sqlite php5-intl\
+    && php5enmod mcrypt 、
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 RUN apt-get update \
