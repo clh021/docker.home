@@ -5,8 +5,8 @@
 # ready
 #_today=`date +%Y%m%d%H%M%S`
 _today=`date +%F_%T`
-MENUS=(install_something docker_run_web docker_rm_web);
-INSTALL_MENUS=(alidebian inst_docker inst_composer inst_phpcs inst_phpmd inst_nodejs_grunt_yeoman_bower inst_memcache inst_redis conf_php_env php_exts inst_ssh inst_git_vim_wget_curl echoclrs inst_xdebug)
+MENUS=(install_something docker_run_lamp docker_rm_lamp);
+INSTALL_MENUS=(alidebian aliubuntu inst_docker inst_composer inst_phpcs inst_phpmd inst_nodejs_grunt_yeoman_bower inst_memcache inst_redis conf_php_env php_exts inst_ssh inst_git_vim_wget_curl echoclrs inst_xdebug)
 DOCKER_MENUS=()
 # ==================================================
 
@@ -20,7 +20,8 @@ inst_docker(){
 }
 docker_run_lamp(){
 #    docker run -d -p 8080:80 -p 3306:3306 tutum/lamp
-    docker run -d -p 80:80 -p 3306:3306 -e MYSQL_PASS="admin" -v /app:/app -v /app/var_lib_mysql:/var/lib/mysql -v /app/docker.home:/root --name web tutum/lamp && docker exec -it web bash
+    # docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /app:/app -v /app/var_lib_mysql:/var/lib/mysql -v /app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #linux
+    docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /c/Users/clh02/Desktop/app:/app -v /c/Users/clh02/Desktop/app/var_lib_mysql:/var/lib/mysql -v /c/Users/clh02/Desktop/app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #windows
 }
 
 docker_rm_lamp(){
@@ -73,6 +74,21 @@ alidebian(){
 	echo "deb http://mirrors.aliyun.com/debian jessie main contrib non-free" > /etc/apt/sources.list; \
 	echo "deb http://mirrors.aliyun.com/debian jessie-updates main contrib non-free" >> /etc/apt/sources.list; \
 	echo "deb http://mirrors.aliyun.com/debian-security wheezy/updates main contrib non-free" >> /etc/apt/sources.list;
+    echoclr blue 'Switch to the source of aliyun success!';
+
+# echo "deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list; \
+# echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list; \
+# echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list; \
+# echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list; \
+# echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list;
+}
+# Update sources to aliyun
+aliubuntu(){
+    echo "deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list; \
+    echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list; \
+    echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list; \
+    echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list; \
+    echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list;
     echoclr blue 'Switch to the source of aliyun success!';
 }
 conf_php_env(){
