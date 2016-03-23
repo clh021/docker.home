@@ -20,8 +20,8 @@ inst_docker(){
 }
 docker_run_lamp(){
 #    docker run -d -p 8080:80 -p 3306:3306 tutum/lamp
-    # docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /app:/app -v /app/var_lib_mysql:/var/lib/mysql -v /app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #linux
-    docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /c/Users/clh02/Desktop/app:/app -v /c/Users/clh02/Desktop/app/var_lib_mysql:/var/lib/mysql -v /c/Users/clh02/Desktop/app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #windows
+    docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /app:/app -v /app/var_lib_mysql:/var/lib/mysql -v /app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #linux
+    # docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /c/Users/clh02/Desktop/app:/app -v /c/Users/clh02/Desktop/app/var_lib_mysql:/var/lib/mysql -v /c/Users/clh02/Desktop/app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #windows
 }
 
 docker_rm_lamp(){
