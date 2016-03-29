@@ -19,9 +19,8 @@ inst_docker(){
     docker-compose --version;
 }
 docker_run_lamp(){
-#    docker run -d -p 8080:80 -p 3306:3306 tutum/lamp
-    docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /app:/app -v /app/var_lib_mysql:/var/lib/mysql -v /app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #linux
-    # docker run -d -p 80:80 -p 3306:3306 -p 4000:4000 -e MYSQL_PASS="admin" -v /c/Users/clh02/Desktop/app:/app -v /c/Users/clh02/Desktop/app/var_lib_mysql:/var/lib/mysql -v /c/Users/clh02/Desktop/app/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash #windows
+    #dockr run -t busybox
+    docker run -d -p 80:80 -p 3306:3306 -e MYSQL_PASS="admin" -v `pwd`:/app -v `pwd`/var_lib_mysql:/var/lib/mysql -v `pwd`/docker.home:/root --name web leehom/lampyii2 && docker exec -it web bash
 }
 
 docker_rm_lamp(){
@@ -31,10 +30,6 @@ docker_pull_php_apache_mariadb(){
     docker pull php:apache;\
     docker pull mariadb;\
     docker pull leehom/dev:php7apacheyii2;#后面节省硬盘空间
-#docker pull redis;\
-#docker pull rabbitmq;
-#docker save php:5.6.11-fpm > docker.image.php.5.6.11.fpm.tar
-#docker load < docker.image.php.5.6.11.fpm.tar
 }
 docker_run_redis_rabbitmq_mariadb_php(){
     docker run --name rabbitmq354 -d rabbitmq:3.5.4 &&\
@@ -47,7 +42,7 @@ docker_run_web(){
     read -p 'Do you see mariadb name containt [Y/N]?' mariadb_exists
     if test "$mariadb_exists" = "N" ; then
         docker run --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb && \
-        docker run -d --name web -p 80:80 -v /app:/var/www/html -v /app/docker.home:/root --link mariadb:mysql leehom/dev:php7apacheyii2;
+        docker run -d --name web -p 80:80 -v `pwd`:/var/www/html -v `pwd`/docker.home:/root --link mariadb:mysql leehom/dev:php7apacheyii2;
 #        docker run -d --name dev -p 8000:80 -v /app:/var/www/html -v /app/docker.home:/root --link mariadb:mysql php:apache;
     else
         docker run -d --name web -p 80:80 -v /app:/var/www/html -v /app/docker.home:/root --link mariadb:mysql leehom/dev:php7apacheyii2;
