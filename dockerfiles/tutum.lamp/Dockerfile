@@ -11,10 +11,10 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 RUN apt-get update \
-    && apt-get -y install python-mysqldb\
+    && apt-get -y install python-mysqldb openssh-server\
     && php5enmod mcrypt \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 WORKDIR /app
-EXPOSE 80 3306
+EXPOSE 80 3306 22
 CMD ["/run.sh"]
