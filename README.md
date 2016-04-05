@@ -127,30 +127,10 @@ initrd /ISOS/fedora/initrd0.img
 \n\t/\*\*[^/]+/ //替换掉所有段落注释
 ```
 
+服务器上的下载操作
 ```
-docker run -d -p 8787:8787 kent72/lantern
-docker run -it -v /app -v /var/lib/mysql -v /root -v /usr/src/app --name lcdata leehom/busy
-docker-enter lcdata
-docker run -it -p "4000:4000" --volumes-from lcdata starefossen/github-pages
-docker run -d -p 80:80 -p 3306:3306 -e MYSQL_PASS="admin" --volumes-from lcdata --name web leehom/lampyii2
-docker exec -it web bash
-docker export lcdata > leehom.lcdata.201603310000.tar #import
-docker commit lcdata leehom/lcdata:201603310000
-docker save leehom/lcdata:201603310000 > leehom.lcdata.201603310000.tar #load
-7z a leehom.lcdata.$(date +%Y-%m-%d_%H:%M:%S).tar.7z leehom.lcdata.201603310000.tar
-```
-
-虚拟机lubuntu中安装以下包，即可适配增强工具
-sudo apt install gcc make dkms
-安装docker使用以下命令即可
-wget -qO- https://get.docker.com/ | sh
-
-
-```
-docker run -v "$PWD":/usr/src/app -p "4000:4000" starefossen/github-pages
-docker run -i -t -p 6080:6080 dorowu/ubuntu-desktop-lxde-vnc
-
-docker run -it --rm -p 5901:5901 -e USER=root dockerfile/ubuntu-desktop \
-    bash -c "vncserver :1 -geometry 1280x800 -depth 24 && tail -F /root/.vnc/*.log"
-docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
+sudo apt-get install transmission-cli
+wget http://releases.ubuntu.com/14.10/ubuntu-14.10-desktop-amd64.iso.torrent
+transmission-cli ubuntu-14.10-desktop-amd64.iso.torrent
+transmission-cli -w ~/iso -D -u 50 -f ~/finish.sh ubuntu-14.10-desktop-amd64.iso.torrent
 ```
