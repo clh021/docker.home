@@ -7,8 +7,19 @@ RUN apt-get update \
     && apt-get -y install php5-gd libpng12-dev libfreetype6-dev zlib1g-dev libicu-dev libmagickwand-dev imagemagick php5-imagick php5-sqlite php5-intl\
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
+#安装前端开发工具
 RUN apt-get update \
-    && apt-get -y install python-mysqldb openssh-server\
+    && apt-get install -y nodejs \
+    && apt-get install -y npm \
+    && npm install -g grunt-cli \
+    && npm install -g bower \
+#    && npm install -g yo \
+#    && apt-get install nodejs-legacy \
+    && apt-get autoremove -y \
+    && rm -r /var/lib/apt/lists/*
+#安装实用工具
+RUN apt-get update \
+    && apt-get -y install python-mysqldb openssh-server curl\
     && php5enmod mcrypt \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*

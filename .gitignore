@@ -4,3 +4,4 @@ id_rsa
 .viminfo
 .npm
 .phpstorm_helpers
+tmp/
