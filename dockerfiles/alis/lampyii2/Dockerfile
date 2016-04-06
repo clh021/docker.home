@@ -12,6 +12,7 @@ RUN apt-get update \
     && apt-get install -y nodejs \
     && apt-get install -y npm \
     && npm install -g grunt-cli \
+    && ln -s /usr/bin/nodejs /usr/bin/node \
     && npm install -g bower \
 #    && npm install -g yo \
 #    && apt-get install nodejs-legacy \
