@@ -20,7 +20,7 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 #安装实用工具
 RUN apt-get update \
-    && apt-get -y install python-mysqldb openssh-server curl\
+    && apt-get -y install python-mysqldb openssh-server curl vim\
     && php5enmod mcrypt \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
