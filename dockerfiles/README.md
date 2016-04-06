@@ -7,6 +7,17 @@ docker save leehom/lcdata:201603310000 > leehom.lcdata.201603310000.tar #load
 7z a leehom.lcdata.$(date +%Y-%m-%d_%H:%M:%S).tar.7z leehom.lcdata.201603310000.tar
 
 docker run -d -p 8787:8787 kent72/lantern
+
+# 创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。
+docker-machine create --engine-registry-mirror=https://eko4ves3.mirror.aliyuncs.com -d virtualbox default
+
+# 查看机器的环境配置，并配置到本地。然后通过Docker客户端访问Docker服务。
+docker-machine env default
+eval "$(docker-machine env default)"
+docker info
+
+#dockertool工具下载
+http://mirrors.aliyun.com/docker-toolbox/windows?spm=0.0.0.0.P4F6GU
 ```
 #备用操作
 ```
