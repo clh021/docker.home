@@ -20,7 +20,7 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 #安装实用工具
 RUN apt-get update \
-    && apt-get -y install python-mysqldb openssh-server curl vim\
+    && apt-get -y install python-mysqldb curl vim\
     && php5enmod mcrypt \
     && apt-get install -y openssh-server \
     && mkdir /var/run/sshd \
