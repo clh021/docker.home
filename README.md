@@ -26,7 +26,12 @@ RUN apt-get -y install build-essential zlib1g-dev ruby-dev ruby nodejs libgmp-de
     && rm -rf /var/lib/apt/lists/
 RUN gem install github-pages -v 39
 ```
-
+### 服务器服务端口修改
+```
+nano /etc/ssh/sshd_config
+Port 22
+/etc/init.d/sshd restart
+```
 ### 服务器常用命令
 ```
 #centos
