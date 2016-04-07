@@ -22,8 +22,14 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get -y install python-mysqldb openssh-server curl vim\
     && php5enmod mcrypt \
+    && apt-get install -y openssh-server
+    && mkdir /var/run/sshd
+    && echo 'root:root' |chpasswd
+    && sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+    && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
+
 WORKDIR /app
 EXPOSE 80 3306 22
 CMD ["/run.sh"]
