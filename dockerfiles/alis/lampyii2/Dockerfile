@@ -29,7 +29,7 @@ RUN apt-get update \
     && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
-
+RUN echo '/usr/sbin/sshd' >> /run.sh
 WORKDIR /app
 EXPOSE 80 3306 22
 CMD ["/run.sh"]
