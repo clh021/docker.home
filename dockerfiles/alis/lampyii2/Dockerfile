@@ -4,7 +4,8 @@ MAINTAINER clh021@gmail.com
 RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty main restricted universe multiverse \ndeb http://mirrors.aliyuncs.com/ubuntu/ trusty-security main restricted universe multiverse \ndeb http://mirrors.aliyuncs.com/ubuntu/ trusty-updates main restricted universe multiverse \ndeb http://mirrors.aliyuncs.com/ubuntu/ trusty-proposed main restricted universe multiverse \ndeb http://mirrors.aliyuncs.com/ubuntu/ trusty-backports main restricted universe multiverse \ndeb-src http://mirrors.aliyuncs.com/ubuntu/ trusty main restricted universe multiverse \n deb-src http://mirrors.aliyuncs.com/ubuntu/ trusty-security main restricted universe multiverse \ndeb-src http://mirrors.aliyuncs.com/ubuntu/ trusty-updates main restricted universe multiverse \ndeb-src http://mirrors.aliyuncs.com/ubuntu/ trusty-proposed main restricted universe multiverse \ndeb-src http://mirrors.aliyuncs.com/ubuntu/ trusty-backports main restricted universe multiverse" > /etc/apt/sources.list
 #安装Yii需要的扩展
 RUN apt-get update \
-    && apt-get -y install php5-gd libpng12-dev libfreetype6-dev zlib1g-dev libicu-dev libmagickwand-dev imagemagick php5-imagick php5-sqlite php5-intl\
+    && apt-get -y install curl php5-gd libpng12-dev libfreetype6-dev zlib1g-dev libicu-dev libmagickwand-dev imagemagick php5-imagick php5-sqlite php5-intl libcurl3 libcurl3-dev php5-curl \
+    && php5enmod mcrypt \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 #安装前端开发工具
@@ -20,9 +21,8 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 #安装实用工具
 RUN apt-get update \
-    && apt-get -y install python-mysqldb curl vim\
-    && php5enmod mcrypt \
-    && apt-get install -y openssh-server \
+    && apt-get -y install python-mysqldb vim\
+    && apt-get install -y openssh-server\
     && mkdir /var/run/sshd \
     && echo 'root:root' |chpasswd \
     && sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
