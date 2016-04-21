@@ -134,3 +134,7 @@ wget http://releases.ubuntu.com/14.10/ubuntu-14.10-desktop-amd64.iso.torrent
 transmission-cli ubuntu-14.10-desktop-amd64.iso.torrent
 transmission-cli -w ~/iso -D -u 50 -f ~/finish.sh ubuntu-14.10-desktop-amd64.iso.torrent
 ```
+安装mysql控制面板
+```
+wget -c http://www.adminer.org/latest.php
+```
