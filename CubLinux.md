@@ -15,4 +15,5 @@
     curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
     ```
 9. 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
-10. 
+10. 检索下载自己常用的 `docker images`
+11. 安装 phpstorm
