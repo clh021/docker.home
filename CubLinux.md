@@ -16,4 +16,5 @@
     ```
 9. 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
 10. 检索下载自己常用的 `docker images`
-11. 安装 phpstorm
+11. 安装 `sudo apt install virtualbox && sudo apt install virtualbox-ext-pack`
+12. 安装 phpstorm
