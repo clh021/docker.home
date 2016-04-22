@@ -5,4 +5,14 @@
 4. double click to install [sogou input software](http://pinyin.sogou.com/linux/download.php?f=linux&bit=64)
 5. 登录 浏览器 google 账号
 6. 终端字体 - 如果终端字体`monospace`别扭就换成`ubuntu monospace`
-7. 
+7. 使用系统自带的系统备份工具备份系统
+8. 安装开发工具 `docker`
+    ```
+    sudo apt install curl && curl -fsSL https://get.docker.com/ | sh
+    ```
+    或者
+    ```
+    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+    ```
+9. 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
+10. 
