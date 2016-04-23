@@ -18,3 +18,10 @@
 10. 检索下载自己常用的 `docker images`
 11. 安装 `sudo apt install virtualbox && sudo apt install virtualbox-ext-pack`
 12. 安装 phpstorm
+13. 配置dns `sudo vim /etc/resolv.conf`
+    ```
+    nameserver 223.5.5.5
+    nameserver 223.6.6.6
+    ```
+    或者直接使用ali脚本自动配置`wget http://www.alidns.com/static/soft/SetAliDNS.sh -O SetAliDNS.sh && chmod +x SetAliDNS.sh && sudo ./SetAliDNS.sh`
+14. 的
