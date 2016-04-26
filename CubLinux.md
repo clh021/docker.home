@@ -24,4 +24,5 @@
     nameserver 223.6.6.6
     ```
     或者直接使用ali脚本自动配置`wget http://www.alidns.com/static/soft/SetAliDNS.sh -O SetAliDNS.sh && chmod +x SetAliDNS.sh && sudo ./SetAliDNS.sh`
-14. 的
+14. `sudo apt-get install conky-all` 然后 `sudo add-apt-repository ppa:teejee2008/ppa && sudo apt update && sudo apt-get install conky-manager`
+15. 
