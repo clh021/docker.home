@@ -25,4 +25,4 @@
     ```
     或者直接使用ali脚本自动配置`wget http://www.alidns.com/static/soft/SetAliDNS.sh -O SetAliDNS.sh && chmod +x SetAliDNS.sh && sudo ./SetAliDNS.sh`
 14. `sudo apt-get install conky-all` 然后 `sudo add-apt-repository ppa:teejee2008/ppa && sudo apt update && sudo apt-get install conky-manager`
-15. 
+15. 如果chrome字体变成了楷体，就移除两个更新下来的包`sudo apt-get remove fonts-arphic-ukai && sudo apt-get remove fonts-arphic-uming`
