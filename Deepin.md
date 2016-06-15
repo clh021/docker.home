@@ -7,8 +7,8 @@
     sudo apt install curl && curl -fsSL https://get.docker.com/ | sh
     ```
 9. 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
-10. 检索下载自己常用的 `docker images`
-11. 安装 `sudo apt install sublime-text virtualbox virtualbox-ext-pack conky-all conky-manager`
+10. 下载自己常用的 `docker images`
+11. `sudo apt install sublime-text virtualbox virtualbox-ext-pack conky-all conky-manager lm-sensors hddtemp`
 13. 配置dns `sudo gedit /etc/resolv.conf`
     ```
     nameserver 223.5.5.5
