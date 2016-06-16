@@ -38,13 +38,8 @@ TEXT
 ${font LCD:style=Bold:pixelsize=50}${alignc}${time %H:%M:%S}
 ${font WenQuanYi Zen Hei:pixelsize=18}${time %Y年%b%d日 星期%a}${alignc}   ${color}$alignr$uptime
 ${font WenQuanYi Zen Hei:pixelsize=12}
-${color #98c2c7}CPU使用率: ${color}$cpu%
-$cpubar
- CPU1 温度: $alignr${exec sensors | grep 'Core 0' | cut -c16-24}
- CPU2 温度: $alignr${exec sensors | grep 'Core 2' | cut -c16-24}
- 内存 温度: $alignr${exec sensors | grep 'temp1' | cut -c16-24}
-
-${color #98c2c7}CPU占用:${color}
+${exec sensors}
+${color #98c2c7}CPU:${color}$cpu%${color #98c2c7}MEM:${color}$mem/$memmax${color #98c2c7}DISK${color}${fs_free /}/${fs_size /}${color}
  ${top name 1} ${alignr}${top cpu 1} 
  ${top name 2} ${alignr}${top cpu 2} 
  ${top name 3} ${alignr}${top cpu 3} 
@@ -55,15 +50,10 @@ ${color #98c2c7}CPU占用:${color}
  ${top name 8} ${alignr}${top cpu 8} 
  ${top name 9} ${alignr}${top cpu 9} 
  ${top name 10} ${alignr}${top cpu 10}
-
-${color #98c2c7}内存：${color}${alignr}$mem / $memmax
-${membar}
-
-${color #98c2c7}磁盘: ${color}${alignr}${fs_free /} / ${fs_size /}
-${fs_bar 4 /}
-
-${color #98c2c7}网络:${color}
-
-下载速度:$alignr${downspeed enp7s0f5} k/s
-上传速度:$alignr${upspeed enp7s0f5} k/s
+下载速度:$alignr${downspeed enp7s0f5}
 ${downspeedgraph enp7s0f5 324D23 77B753}
+上传速度:$alignr${upspeed enp7s0f5}
+${upspeedgraph enp7s0f5 324D23 77B753}
+#随便写点啥＃
+$alignc 地球是我们的   也是那些孩子们的
+$alignc 但是迟早还是那帮孙子们的
