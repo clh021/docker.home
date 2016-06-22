@@ -27,6 +27,9 @@ docker run -i -t -p 6080:6080 dorowu/ubuntu-desktop-lxde-vnc
 docker run -it --rm -p 5901:5901 -e USER=root dockerfile/ubuntu-desktop \
     bash -c "vncserver :1 -geometry 1280x800 -depth 24 && tail -F /root/.vnc/*.log"
 docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
+
+ls | grep '100MEDIA-03' | xargs rm  清理服务器数据
+docker run -d -it --name=cloud9 -v $(pwd):/workspace -p 8181:8181 zuolan/cloud9-ide --auth lianghongkaifa:lianghonglihai
 ```
 #常用命令
 ```
