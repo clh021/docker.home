@@ -38,6 +38,7 @@ Port 22
 ps -aux | grep queue #查看后台进程
 cat /etc/redhat-release #查看版本信息
 yum install -y nginx php php-fpm mysql mysql-server php-mysql && yum clean all
+du -sh * #查看当前目录下所有文件和文件夹的大小，用于找出不合理的大文件
 ```
 ###配置php-fpm与nginx配置
 ```
