@@ -63,6 +63,14 @@ rm -f .bash_history\r
 rm -f .mysql_history\r
 history -c\r
 
+echo > /var/log/wtmp
+echo > /var/log/btmp
+cd #
+rm -f .bash_history
+rm -f .mysql_history
+history -c
+
+
 #开启3306端口
 /sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT\r
 
