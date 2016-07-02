@@ -16,4 +16,6 @@
     nameserver 223.5.5.5
     nameserver 223.6.6.6
     ```
-11. `sudo apt-get install conky-all` 然后 `sudo add-apt-repository ppa:teejee2008/ppa && sudo apt update && sudo apt-get install conky-manager`
+11. `sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc`
+12. `sudo apt-get install conky-all` 然后 `sudo add-apt-repository ppa:teejee2008/ppa && sudo apt update && sudo apt-get install conky-manager`
+13. /usr/share/backgrounds/linuxmint/default_background.jpg #软连接为你的图片即可修改锁屏背景
