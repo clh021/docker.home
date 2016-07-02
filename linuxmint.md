@@ -10,7 +10,7 @@
     ```
 7. 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
 8. 检索下载自己常用的 `docker images`
-9. 安装 `sudo apt install virtualbox && sudo apt install virtualbox-ext-pack`
+9. 安装 `sudo apt install virtualbox virtualbox-qt install virtualbox-ext-pack`
 10. 配置dns `sudo xed /etc/resolv.conf`
     ```
     nameserver 223.5.5.5
