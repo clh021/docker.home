@@ -30,6 +30,7 @@ docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
 
 ls | grep '100MEDIA-03' | xargs rm  清理服务器数据
 docker run -d -it --name=cloud9 -v $(pwd):/workspace -p 8181:8181 zuolan/cloud9-ide --auth username:password
+docker run -d -it --name=cloud9 --cap-add SYS_ADMIN --device /dev/fuse --privileged -v $(pwd):/workspace -p 8181:8181 zuolan/cloud9-ide --auth username:password
 ```
 #常用命令
 ```
