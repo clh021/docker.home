@@ -18,4 +18,5 @@
     ```
 11. `sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc`
 12. `sudo apt-get install conky-all` 然后 `sudo add-apt-repository ppa:teejee2008/ppa && sudo apt update && sudo apt-get install conky-manager`
-13. /usr/share/backgrounds/linuxmint/default_background.jpg #软连接为你的图片即可修改锁屏背景
+13. `apt install workrave` 定时休息软件
+14. `/usr/share/backgrounds/linuxmint/default_background.jpg #软连接为你的图片即可修改锁屏背景`
