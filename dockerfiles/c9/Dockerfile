@@ -1,11 +1,11 @@
 FROM ubuntu:trusty
 MAINTAINER LeeHom Chen <clh021@gmail.com>
 RUN buildDeps='make build-essential g++ gcc python' && softDeps="git" \
- && apt-get update && apt-get upgrade -y \
+ && apt-get update \
  && apt-get install -y $buildDeps --no-install-recommends
 RUN curl -sL https://deb.nodesource.com/setup | sudo bash - \
  && apt-get install -y nodejs
-RUN build-essential g++ python curl ca-certificates libssl-dev apache2-utils git libxml2-dev sshfs \
+RUN apt-get install -y build-essential g++ python curl ca-certificates libssl-dev apache2-utils git libxml2-dev sshfs \
  && npm install -g forever && npm cache clean \
  && git clone https://github.com/c9/core.git /cloud9 && cd /cloud9 \
  && scripts/install-sdk.sh \
