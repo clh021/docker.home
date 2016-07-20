@@ -3,13 +3,11 @@ MAINTAINER LeeHom Chen <clh021@gmail.com>
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update \
-    && apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs \
-    && apt-get autoremove -y && rm -r /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs
 # ------------------------------------------------------------------------------
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup | bash - \
-    && apt-get install -y nodejs \
-    && apt-get autoremove -y && rm -r /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && apt-get install -y nodejs
 # ------------------------------------------------------------------------------
 # Install Cloud9
 RUN git clone https://github.com/c9/core.git /cloud9
