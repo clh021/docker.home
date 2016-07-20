@@ -30,7 +30,8 @@ docker run -it --rm -p 5901:5901 -e USER=root dockerfile/ubuntu-desktop \
 docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
 
 ls | grep '100MEDIA-03' | xargs rm  #清理服务器数据
-docker run -d -it --name=cloud9 --privileged -v /app:/workspace -p 80:80 kdelfour/cloud9-docker #/etc/supervisor/conf.d/cloud9.conf
+docker run -d -it --name=cloud9 --privileged -v /app:/workspace -p 80:80 kdelfour/cloud9-docker
+#/etc/supervisor/conf.d/cloud9.conf  --auth ${user}:${pass}
 docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registry.aliyuncs.com/leehom/ng2-admin
 ```
 #常用命令
