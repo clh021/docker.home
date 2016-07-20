@@ -7,6 +7,7 @@ docker save leehom/lcdata:201603310000 > leehom.lcdata.201603310000.tar #load
 7z a leehom.lcdata.$(date +%Y-%m-%d_%H:%M:%S).tar.7z leehom.lcdata.201603310000.tar
 docker cp kickass_yonath:/home/data.txt .
 docker run -d -p 8787:8787 kent72/lantern
+docker run -it -v "$PWD"/golang:/usr/src/myapp -w /usr/src/myapp golang go build -v
 
 # 创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。
 docker-machine create --engine-registry-mirror=https://eko4ves3.mirror.aliyuncs.com -d virtualbox default
@@ -29,9 +30,7 @@ docker run -it --rm -p 5901:5901 -e USER=root dockerfile/ubuntu-desktop \
 docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
 
 ls | grep '100MEDIA-03' | xargs rm  清理服务器数据
-docker run -d -it --name=cloud9 -v $(pwd):/workspace -p 8181:8181 zuolan/cloud9-ide --auth username:password
-docker run -d -it --name=cloud9 --cap-add SYS_ADMIN --device /dev/fuse --privileged -v $(pwd):/workspace -p 8181:8181 zuolan/cloud9-ide --auth username:password
-docker run -d -it --name=cloud9 -v $(pwd):/workspace -p 8181:8181 registry.aliyuncs.com/leehom/c9 --auth username:password^M
+docker run -d -it --name=cloud9 -v /app:/workspace -p 8180:80 leehom/c9 --auth ${user}:${pass} --listen 0.0.0.0 -w /workspace
 docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registry.aliyuncs.com/leehom/ng2-admin
 ```
 #常用命令
