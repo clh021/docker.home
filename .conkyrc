@@ -55,5 +55,5 @@ ${downspeedgraph enp7s0f5 324D23 77B753}
 上传速度:$alignr${upspeed enp7s0f5}
 ${upspeedgraph enp7s0f5 324D23 77B753}
 #随便写点啥＃
-$alignc 地球是我们的   也是那些孩子们的
-$alignc 但是迟早还是那帮孙子们的
+$alignc bierangfangbiandaraoleni
+$alignc xihuanjiuhuifangsiaijiuhuikezhi
