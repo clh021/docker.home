@@ -36,7 +36,8 @@ docker run -it -d -p 8181:8181 -v $(pwd):/workspace -e USER=user -e PASS=secret 
 docker run -it -d -p 80:80 -e AUTH=user:pass -v $(pwd):/workspace flyinprogrammer/cloud9-with-carina #完美
 docker run -d -it --name=cloud9 --privileged -v /app:/workspace -p 80:80 kdelfour/cloud9-docker
 #/etc/supervisor/conf.d/cloud9.conf  --auth ${user}:${pass}
-docker run -d richarvey/nginx-php-fpm #https://hub.docker.com/r/richarvey/nginx-php-fpm/
+docker run -d richarvey/nginx-php-fpm #[readme](https://hub.docker.com/r/richarvey/nginx-php-fpm/)
+docker run -d -v $(pwd):/var/www/html -p 80:80 richarvey/nginx-php-fpm
 docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registry.aliyuncs.com/leehom/ng2-admin
 ```
 #常用命令
