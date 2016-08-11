@@ -142,6 +142,8 @@ initrd /ISOS/fedora/initrd0.img
 ```
 google.com
 google.com.hk
+googleusercontent.com
+googleapis.com
 ```
 
 ### 其它
