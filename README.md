@@ -164,3 +164,8 @@ transmission-cli -w ~/iso -D -u 50 -f ~/finish.sh ubuntu-14.10-desktop-amd64.iso
 ```
 wget -c http://www.adminer.org/latest.php
 ```
+隐藏标志性面板
+```
+vim //build/standalone/skin/default/dark.css #两处，元素查找
+echo //static/plugins/..layout.classic/images/loading-logo.png
+```
