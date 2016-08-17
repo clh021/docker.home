@@ -168,4 +168,6 @@ wget -c http://www.adminer.org/latest.php
 ```
 vim //build/standalone/skin/default/dark.css #两处，元素查找
 echo //static/plugins/..layout.classic/images/loading-logo.png
+echo //local/index.html #title
+echo //local/favicon.ico
 ```
