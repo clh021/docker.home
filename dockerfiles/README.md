@@ -22,6 +22,7 @@ http://mirrors.aliyun.com/docker-toolbox/windows?spm=0.0.0.0.P4F6GU
 ```
 #备用操作
 ```
+docker run -d -p 80:80 -e ALLOW_OVERRIDE=true tutum/apache-php #enable .htaccess
 docker run -v "$PWD":/usr/src/app -p "4000:4000" starefossen/github-pages
 docker run -i -t -p 6080:6080 dorowu/ubuntu-desktop-lxde-vnc
 
@@ -44,7 +45,4 @@ docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registr
 #常用命令
 ```
 apt update && wget -qO- https://get.docker.com/ | sh
-#我的淘宝加速器
-echo "DOCKER_OPTS=\"--registry-mirror=https://eko4ves3.mirror.aliyuncs.com\"" | sudo tee -a /etc/default/docker
-sudo service docker restart
 ```
