@@ -17,3 +17,7 @@ service squid3 restart
 ```
 ---------------------------------
 ##Use it service
+```
+http://username:password@yourproxyaddress:proxyport #用户名密码登陆方式
+export http_proxy=http://username:password@proxyip:proxyport
+```
