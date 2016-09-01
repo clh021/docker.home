@@ -32,6 +32,7 @@ docker run -it --rm -p 5901:5901 -e USER=root dockerfile/ubuntu-desktop \
 docker pull sevnew/ubuntu-xfce-vnc-desktop-chrome
 
 ls | grep '100MEDIA-03' | xargs rm  #清理服务器数据
+
 docker run -d -v $(pwd):/workspace -p 3131:3131 gai00/cloud9 --username test --password testpass #部分功能缺少mount
 docker run -d -v $(pwd):/workspace -p 8181:8181 sapk/cloud9 --auth username:password #终端功能缺少
 docker run -it -d -p 8181:8181 -v $(pwd):/workspace -e USER=user -e PASS=secret hansd/cloud9 #无法登陆
@@ -40,8 +41,16 @@ docker run -d -it --name=cloud9 --privileged -v /app:/workspace -p 80:80 kdelfou
 #/etc/supervisor/conf.d/cloud9.conf  --auth ${user}:${pass}
 docker run -d richarvey/nginx-php-fpm #[readme](https://hub.docker.com/r/richarvey/nginx-php-fpm/)
 docker run -d -v $(pwd):/var/www/html -p 80:80 richarvey/nginx-php-fpm
-docker run --name myadmin -d -e PMA_HOST=7908f4d6568d.gz.cdb.myqcloud.com -e PMA_PORT=4158 -p 8080:80 phpmyadmin/phpmyadmin
+docker run --name myadmin -d -e PMA_HOST=7908f4d6568d.gz.cdb.myqcloud.com -e PMA_PORT=4158 -p 8080:80 
+
+phpmyadmin/phpmyadmin
 docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registry.aliyuncs.com/leehom/ng2-admin
+
+docker run -d -p 80:80 -p 443:443 -v /path/to/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+$ docker run -d -p 80:80 -p 443:443 -v /path/to/vhost.d:/etc/nginx/vhost.d:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+$ { echo 'server_tokens off;'; echo 'client_max_body_size 100m;'; } > /path/to/vhost.d/app.example.com
+
+
 ```
 #常用命令
 ```
