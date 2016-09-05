@@ -1,3 +1,4 @@
+`git clone --depth=1 https://github.com/clh021/docker.home.git`
 ### TODO
 - Yii应用
 - srchData
