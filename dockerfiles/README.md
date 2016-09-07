@@ -23,7 +23,7 @@ http://mirrors.aliyun.com/docker-toolbox/windows?spm=0.0.0.0.P4F6GU
 #备用操作
 ```
 docker run --name postgres -d -p 5432:5432 -e POSTGRES_PASS="mypass" tutum/postgresql #postgresql
-docker run --name postgres -d -p 5432:5432 -e POSTGRES_PASSWORD=postres postgres #postres
+docker run --name postgres -d -p 5432:5432 -e POSTGRES_PASSWORD="postgres" -e POSTGRES_USER="postgres" postgres #postres
 docker run -d -p 80:80 -e ALLOW_OVERRIDE=true tutum/apache-php #enable .htaccess
 docker run -v "$PWD":/usr/src/app -p "4000:4000" starefossen/github-pages
 docker run -i -t -p 6080:6080 dorowu/ubuntu-desktop-lxde-vnc
