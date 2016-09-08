@@ -98,7 +98,7 @@ location ~\.php$ {
 }
 ```
 ### 如何强制谷歌访问使用https
-谷歌浏览器，打开[`chrome://net-internals/#hsts`](chrome://net-internals/#hsts){:target="_blank"}然后在"Add domain"中输入网址勾选下面俩勾点击"Add"即可
+谷歌浏览器，打开[这里](chrome://net-internals/#hsts){:target="_blank"}然后在"Add domain"中输入网址勾选下面俩勾点击"Add"即可
 网址包括：
 ```
 google.com
