@@ -97,48 +97,8 @@ location ~\.php$ {
     include         fastcgi_params;
 }
 ```
-### LMT的MENU /BOOT/GRUB/BOOT.LST OR /BOOT/GRUB/MENU
-```
-#通常情况下很多ISO都可以直接启动或者直接在PE中启动 windows.iso
-#以下菜单以硬盘启动方式来编写菜单
-title 返回启动主菜单
-configfile (md)4+8
-
-title 启动第二菜单/BOOT/GRUB/BOOT.LST
-command RUN /BOOT/GRUB/BOOT.LST
-
-title 菜单方式列出/ISOS/目录下的所有ISO文件
-command RUN --automenu --show.iso /isos/
-
-title 菜单方式列出目前所有可用设备
-command RUN --automenu-all
-
-title 列表方式列出目前所有可用设备
-command RUN --autolist-all
-
-title linuxmint-17.2-cinnamon-64bit.iso
-find --set-root /ISOS/linuxmint/vmlinuz
-kernel /ISOS/linuxmint/vmlinuz boot=casper iso-scan/filename=/ISOS/linuxmint-17.2-cinnamon-64bit.iso ro quiet locale=zh_CN.UTF-8
-initrd /ISOS/linuxmint/initrd.lz
-
-title deepin_2014.3_amd64.iso
-find --set-root /ISOS/deepin2014/VMLINUZ
-kernel /ISOS/deepin2014/VMLINUZ boot=casper iso-scan/filename=/ISOS/deepin_2014.3_amd64.iso ro quiet locale=zh_CN.UTF-8
-initrd /ISOS/deepin2014/INITRD.LZ
-
-title deepin_2015_amd64.iso
-find --set-root /ISOS/deepin2015/VMLINUZ
-kernel /ISOS/deepin2015/VMLINUZ boot=casper iso-scan/filename=/ISOS/deepin_2015_amd64.iso ro quiet locale=zh_CN.UTF-8
-initrd /ISOS/deepin2015/INITRD.LZ
-
-title Fedora-Live-MATE_Compiz-x86_64-22-3.iso
-find --set-root /ISOS/fedora/vmlinuz0
-kernel /ISOS/fedora/vmlinuz0 ro root=LABEL=/1  rhgb quiet
-initrd /ISOS/fedora/initrd0.img
-```
-
 ### 如何强制谷歌访问使用https
-谷歌浏览器，打开`chrome://net-internals/#hsts`然后在"Add domain"中输入网址勾选下面俩勾点击"Add"即可
+谷歌浏览器，打开[`chrome://net-internals/#hsts`](chrome://net-internals/#hsts){:target="_blank"}然后在"Add domain"中输入网址勾选下面俩勾点击"Add"即可
 网址包括：
 ```
 google.com
