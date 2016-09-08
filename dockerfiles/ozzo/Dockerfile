@@ -18,9 +18,7 @@ RUN go get github.com/qiangxue/golang-restful-starter-kit
 RUN go get -u github.com/Masterminds/glide
 RUN cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
 WORKDIR $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit
-RUN echo 'dsn: "postgres://postgres:postgres@postgres:5432/go_restful?sslmode=disable"'>app.yaml
-RUN echo 'jwt_verification_key: "QfCAH04Cob7b71QCqy738vw5XGS"'$RANDOM>>app.yaml
-RUN echo 'jwt_signing_key: "QfCAH04Cob7b71QCqy738vw5XGS"'$RANDOM>>app.yaml
+RUN cd config && pwd && echo 'dsn: "postgres://postgres:postgres@postgres:5432/go_restful?sslmode=disable"'>app.yaml && echo 'jwt_verification_key: "'$RANDOM'04Cob7b71QCqy738vw5XGS'$RANDOM'"'>>app.yaml && echo 'jwt_signing_key: "'$RANDOM'04Cob7b71QCqy738vw5XGS'$RANDOM'"'>>app.yaml
 CMD ["go","run","server.go"]
 EXPOSE 8080
 
@@ -30,7 +28,4 @@ EXPOSE 8080
 #docker run -it --rm -p 8080:8080 --name restful --link postgres:postgres leehom/ozzo-restful-kit
 #如需包含更多包，欢迎反馈，会酌情添加
 
-#问题：
-#1、我这里配置修改未生效(文件修改成功)
-#2、我配置的随机数也没有写入到配置
 #测试阶段
