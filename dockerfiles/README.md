@@ -1,10 +1,32 @@
 #常用操作
 ```
+#基本的mysql与php:apache连接
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb &&\
+docker run -d --name web -p 80:80 -v /app:/var/www/html -v /app/docker.home:/root --link mariadb:mysql php:apache
+#常用命令
+docker run --rm -it node node
+docker run --rm -it -p 3000:3000 --name nodestudy -v /app/node:/app/node -v /app/docker.home:/root -w /app/node node npm start
+docker run -it --rm -p 3000:3000 --name nodestudy -v /app/node:/app/node -v /app/docker.home:/root -w /app/node node node /app/node/app.js
+
+#jekyll
+RUN apt-get -y install build-essential zlib1g-dev ruby-dev ruby nodejs libgmp-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/
+RUN gem install github-pages -v 39
+
 docker exec -it web bash #进入容器
+docker stop web && docker rm web #停止并删除容器
+
+#导入、导出、保存、提交
 docker export lcdata > leehom.lcdata.201603310000.tar #import
 docker commit lcdata leehom/lcdata:201603310000 #提交本地容器镜像
 docker save leehom/lcdata:201603310000 > leehom.lcdata.201603310000.tar #load
 7z a leehom.lcdata.$(date +%Y-%m-%d_%H:%M:%S).tar.7z leehom.lcdata.201603310000.tar
+docker save jekyll/jekyll > jekyll.jekyll.tar
+docker load < jekyll.jekyll.tar
+7z a jekyll.jekyll.tar.7z jekyll.jekyll.tar
+
+docker run --rm --name=jekyll -v $(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll
 docker cp kickass_yonath:/home/data.txt .
 docker run -d -p 8787:8787 kent72/lantern
 docker run -it -v "$PWD"/golang:/usr/src/myapp -w /usr/src/myapp golang go build -v
