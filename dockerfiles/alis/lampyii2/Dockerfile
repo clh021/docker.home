@@ -10,7 +10,7 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 #安装postgresql数据库
 RUN apt-get update \
-    && apt-get install -y postgresql-9.4 \
+    && apt-get install -y postgresql-server-dev-all \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 #安装GO环境
@@ -40,5 +40,5 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 RUN echo '/usr/sbin/sshd' >> /run.sh
 WORKDIR /app
-EXPOSE 80 3306 22
+EXPOSE 80 3306 22 5432
 CMD ["/run.sh"]
