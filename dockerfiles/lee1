@@ -35,10 +35,10 @@ RUN echo 'GO install gogogo!' && wget -c https://storage.googleapis.com/golang/g
 ENV GOPATH=/app/gopath
 ENV GOROOT=/usr/local/go
 ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-RUN /usr/local/go/bin/go env
-RUN go env
-RUN /usr/local/go/bin/go get github.com/astaxie/beego
-RUN /usr/local/go/bin/go get github.com/beego/bee && go get -u github.com/go-sql-driver/mysql && go get github.com/qiangxue/golang-restful-starter-kit && go get -u github.com/Masterminds/glide && cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
+RUN go get github.com/astaxie/beego && go get github.com/beego/bee
+RUN go get -u github.com/go-sql-driver/mysql
+RUN go get github.com/qiangxue/golang-restful-starter-kit && go get -u github.com/Masterminds/glide
+RUN cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
 WORKDIR /app
 EXPOSE 80 3306 22 5432
 CMD ["/run.sh"]
