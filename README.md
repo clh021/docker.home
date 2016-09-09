@@ -1,32 +1,5 @@
-`git clone --depth=1 https://github.com/clh021/docker.home.git`
-### TODO
-- Yii应用
-- srchData
-- AutoMessageData
-- Drupal8
+> `git clone --depth=1 https://github.com/clh021/docker.home.git`
 
-### 基于的环境的使用
-```
-#基本的mysql与php:apache连接
-docker run --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb &&\
-docker run -d --name web -p 80:80 -v /app:/var/www/html -v /app/docker.home:/root --link mariadb:mysql php:apache
-#常用命令
-docker exec -it web bash
-docker stop web && docker rm web
-docker save jekyll/jekyll > jekyll.jekyll.tar
-docker load < jekyll.jekyll.tar
-7z a jekyll.jekyll.tar.7z jekyll.jekyll.tar
-docker run --rm --name=jekyll -v $(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll
-#常用环境
-docker run --rm -it node node
-docker run --rm -it -p 3000:3000 --name nodestudy -v /app/node:/app/node -v /app/docker.home:/root -w /app/node node npm start
-docker run -it --rm -p 3000:3000 --name nodestudy -v /app/node:/app/node -v /app/docker.home:/root -w /app/node node node /app/node/app.js
-#jekyll
-RUN apt-get -y install build-essential zlib1g-dev ruby-dev ruby nodejs libgmp-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/
-RUN gem install github-pages -v 39
-```
 ### 服务器服务端口修改
 ```
 nano /etc/ssh/sshd_config
