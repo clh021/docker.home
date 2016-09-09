@@ -33,9 +33,9 @@ RUN echo 'GO install gogogo!' && wget -c https://storage.googleapis.com/golang/g
     && echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.profile \
     && /bin/bash -c "source ~/.profile"
 #安装GO常用包
-RUN go env
-RUN /bin/bash -c "go get github.com/astaxie/beego"
-RUN go get github.com/beego/bee && go get -u github.com/go-sql-driver/mysql && go get github.com/qiangxue/golang-restful-starter-kit && go get -u github.com/Masterminds/glide && cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
+RUN /usr/local/go/bin/go env
+RUN /usr/local/go/bin/go get github.com/astaxie/beego
+RUN /usr/local/go/bin/go get github.com/beego/bee && go get -u github.com/go-sql-driver/mysql && go get github.com/qiangxue/golang-restful-starter-kit && go get -u github.com/Masterminds/glide && cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
 WORKDIR /app
 EXPOSE 80 3306 22 5432
 CMD ["/run.sh"]
