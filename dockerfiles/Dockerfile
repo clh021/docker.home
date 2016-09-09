@@ -31,7 +31,7 @@ RUN echo 'GO install gogogo!' && wget -c https://storage.googleapis.com/golang/g
     && echo 'export GOPATH=/app/gopath' >> ~/.profile \
     && echo 'export GOROOT=/usr/local/go' >> ~/.profile \
     && echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.profile \
-    && source ~/.profile \
+    && source ~/.profile
 #安装GO常用包
 RUN go get github.com/astaxie/beego \
     && go get github.com/beego/bee \
