@@ -14,9 +14,18 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
 #安装GO环境
-RUN sudo apt-get install -y golang \
-    && apt-get autoremove -y \
-    && rm -r /var/lib/apt/lists/*
+RUN wget -c https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz \
+    && echo 'export GOPATH=/app/gopath' >> ~/.profile \
+    && echo 'export GOROOT=/usr/local/go' >> ~/.profile \
+    && echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.profile \
+    && source ~/.profile \
+    && go get github.com/astaxie/beego \
+    && go get github.com/beego/bee \
+    && go get -u github.com/go-sql-driver/mysql \
+    && go get github.com/qiangxue/golang-restful-starter-kit \
+    && go get -u github.com/Masterminds/glide \
+    && cd $GOPATH/src/github.com/qiangxue/golang-restful-starter-kit && glide up -u -s
 #安装前端开发工具
 RUN apt-get update \
     && apt-get install -y nodejs \
