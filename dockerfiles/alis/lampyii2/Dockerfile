@@ -8,6 +8,15 @@ RUN apt-get update \
     && php5enmod mcrypt \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/*
+#安装postgresql数据库
+RUN apt-get update \
+    && apt-get install -y postgresql-9.4 \
+    && apt-get autoremove -y \
+    && rm -r /var/lib/apt/lists/*
+#安装GO环境
+RUN sudo apt-get install -y golang \
+    && apt-get autoremove -y \
+    && rm -r /var/lib/apt/lists/*
 #安装前端开发工具
 RUN apt-get update \
     && apt-get install -y nodejs \
