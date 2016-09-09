@@ -23,7 +23,7 @@ RUN apt-get update \
     && mkdir /var/run/sshd \
     && echo 'root:root' |chpasswd \
     && sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
-    && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+    && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
     && echo '/usr/sbin/sshd' >> /run.sh
 #安装GO环境
 RUN wget -c https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz \
@@ -32,6 +32,7 @@ RUN wget -c https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz \
     && echo 'export GOROOT=/usr/local/go' >> ~/.profile \
     && echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.profile \
     && source ~/.profile \
+#安装GO常用包
     && go get github.com/astaxie/beego \
     && go get github.com/beego/bee \
     && go get -u github.com/go-sql-driver/mysql \
