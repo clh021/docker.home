@@ -8,9 +8,9 @@ RUN apt-get update \
     && apt-get -y install curl php5-gd libpng12-dev libfreetype6-dev zlib1g-dev libicu-dev libmagickwand-dev imagemagick php5-imagick php5-sqlite php5-intl libcurl3 libcurl3-dev php5-curl \
     && php5enmod mcrypt \
 #安装postgresql数据库
-    && apt-get install -y postgresql-server-dev-all \
+    && apt-get install -y postgresql-server-dev-all
 #安装前端开发工具
-    && apt-get install -y nodejs \
+RUN apt-get install -y nodejs \
     && apt-get install -y npm \
     && npm install -g grunt-cli \
     && ln -s /usr/bin/nodejs /usr/bin/node \
