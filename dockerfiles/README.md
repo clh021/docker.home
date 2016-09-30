@@ -40,6 +40,26 @@ docker run -v $OVPN_DATA:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN ky
 docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full CLIENTNAME nopass
 docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
 
+#Docker快速建立OpenVPN服务
+export OVPN_DATA="ovpn-data" #设置变量
+docker run --name $OVPN_DATA -v /etc/openvpn busybox #创建$OVPN_DATA 卷容器
+docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_genconfig -u udp://VPN.SERVERNAME.COM #创建配置文件及证书
+docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_genconfig -u tcp://VPN.SERVERNAME.COM
+sudo docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn ovpn_initpki
+
+sudo docker -v
+      ○ Docker version 1.2 以上版本
+sudo docker run --volumes-from $OVPN_DATA -d -p 1194:1194/udp --cap-add=NETADMIN kylemanna/openvpn
+sudo docker run --volumes-from $OVPN_DATA -d -p 1194:1194/tcp --cap-add=NETADMIN kylemanna/openvpn
+      ○ Docker version 1.2 以下版本
+sudo docker run --volumes-from $OVPN_DATA -d -p 1194:1194/udp --privileged kylemanna/openvpn
+sudo docker run --volumes-from $OVPN_DATA -d -p 1194:1194/tcp --privileged kylemanna/openvpn
+
+sudo docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn easyrsa build-client-full CLIENTNAME nopass #生成客户端证书
+sudo docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn #生成客户端配置文件
+cat CLIENTNAME.ovpn
+
+
 #清理过时镜像_标签为none的镜像_
 docker images|grep none|awk '{print $3}'| xargs docker rmi
 
