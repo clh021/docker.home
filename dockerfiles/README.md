@@ -98,7 +98,7 @@ docker run -d richarvey/nginx-php-fpm #[readme](https://hub.docker.com/r/richarv
 docker run -d -v $(pwd):/var/www/html -p 80:80 richarvey/nginx-php-fpm
 docker run --name myadmin -d -e PMA_HOST=7908f4d6568d.gz.cdb.myqcloud.com -e PMA_PORT=4158 -p 8080:80 phpmyadmin/phpmyadmin
 docker run -d --name=ng2-admin -v $(pwd)/ng2-admin:/var/www -p 8080:8080 registry.aliyuncs.com/leehom/ng2-admin
-docker run --env PASSWORD=password -d garland/butterfly --login #web terminal
+docker run --env PASSWORD=password -p 57575:57575 -d garland/butterfly --port=57575 --login #web terminal
 
 docker run -d -p 80:80 -p 443:443 -v /path/to/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
 $ docker run -d -p 80:80 -p 443:443 -v /path/to/vhost.d:/etc/nginx/vhost.d:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
