@@ -91,7 +91,8 @@ ls | grep '100MEDIA-03' | xargs rm  #清理服务器数据
 docker run -d -v $(pwd):/workspace -p 3131:3131 gai00/cloud9 --username test --password testpass #部分功能缺少mount
 docker run -d -v $(pwd):/workspace -p 8181:8181 sapk/cloud9 --auth username:password #终端功能缺少
 docker run -it -d -p 8181:8181 -v $(pwd):/workspace -e USER=user -e PASS=secret hansd/cloud9 #无法登陆
-docker run -it -d -p 80:80 -e AUTH=user:pass -v $(pwd):/workspace flyinprogrammer/cloud9-with-carina #完美
+docker run -it --name=cloud9 --cap-add SYS_ADMIN --device /dev/fuse -d -p 80:80 -e AUTH=user:pass -v $(pwd):/workspace flyinprogrammer/cloud9-with-carina #完美
+docker run -it --name=cloud9 --privileged -d -p 80:80 -e AUTH=user:pass -v $(pwd):/workspace flyinprogrammer/cloud9-with-carina #完美
 docker run -d -it --name=cloud9 --privileged -v /app:/workspace -p 80:80 kdelfour/cloud9-docker
 #/etc/supervisor/conf.d/cloud9.conf  --auth ${user}:${pass}
 docker run -d richarvey/nginx-php-fpm #[readme](https://hub.docker.com/r/richarvey/nginx-php-fpm/)
