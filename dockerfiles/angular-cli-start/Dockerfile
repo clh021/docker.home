@@ -5,8 +5,8 @@ RUN apt-get install -y vim git nodejs npm
 RUN npm install -g typescript
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm install -g angular-cli --no-optional
-RUN ng new /root/workspace
-WORKDIR /root/workspace
+RUN ng new workspace
+WORKDIR /workspace
 
 # Explanation
 # Here to ensure the rapid development of Chinese inland developers to use
@@ -18,7 +18,6 @@ WORKDIR /root/workspace
 # RUN chown -R $APP_USER /usr/local/lib/node_modules
 # USER $APP_USER
 # 繁琐的权限问题，忽略，直接在docker中使用root
-#
 # RUN npm install && npm cache clean
 # RUN npm install cnpm typings
 # RUN npm run typings --install
