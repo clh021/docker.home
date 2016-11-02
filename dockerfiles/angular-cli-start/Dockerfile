@@ -4,12 +4,9 @@ RUN apt-get update
 RUN apt-get install -y vim git nodejs npm
 RUN npm install -g typescript
 RUN ln -s /usr/bin/nodejs /usr/bin/node
-RUN npm install -g angular-cli
-
-ENV APP_NAME "wetripcloud"
-RUN cd
-RUN ng new /root/$APP_NAME
-WORKDIR /root/$APP_NAME
+RUN npm install -g angular-cli --no-optional
+RUN ng new /root/workspace
+WORKDIR /root/workspace
 
 # Explanation
 # Here to ensure the rapid development of Chinese inland developers to use
