@@ -27,4 +27,6 @@ define("FS_CHMOD_FILE", 0777);
 ## 技巧
 `WP Install Profiles`批量导入导出插件[亲测没有效果，只能保存导入导出列表]
 `Advanced Custom Fields`自定义字段
-`Admin Tools`管理后台界面可见性的工具
+`Admin Menu Editor`管理后台界面可见性工具，有可视化视图
+`bbPress`论坛功能
+`Code Snippets`可以添加代码片段以避免修改function.php,有良好的编码配色界面
