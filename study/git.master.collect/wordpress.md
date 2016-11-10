@@ -21,3 +21,4 @@ define("FS_CHMOD_FILE", 0777);
 //同时配置本地写命令 `sudo chmod 777 -R wp-content`，撤销命令为`sudo chmod 755 -R wp-content`
 ```
 登录到后台，在更新按钮中点击 `Update Translations` 按钮，获取本地化。
+获取本地化完成后，可更新各个主题插件的翻译。
