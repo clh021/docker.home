@@ -25,4 +25,6 @@ define("FS_CHMOD_FILE", 0777);
 获取本地化完成后，可更新各个主题插件的翻译。
 
 ## 技巧
-批量导入导出插件 使用 `WP Install Profiles`即可方便快速的操作。
+`WP Install Profiles`批量导入导出插件[亲测没有效果，只能保存导入导出列表]
+`Advanced Custom Fields`自定义字段
+`Admin Tools`管理后台界面可见性的工具
