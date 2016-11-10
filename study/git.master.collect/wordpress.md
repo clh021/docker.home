@@ -1,4 +1,5 @@
-### 从头开始做wordpress
+# WordPress集合
+## 从头开始做wordpress
 部署、更新、脏检查
 ```
 git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
@@ -22,3 +23,6 @@ define("FS_CHMOD_FILE", 0777);
 ```
 登录到后台，在更新按钮中点击 `Update Translations` 按钮，获取本地化。
 获取本地化完成后，可更新各个主题插件的翻译。
+
+## 技巧
+批量导入导出插件 使用 `WP Install Profiles`即可方便快速的操作。
