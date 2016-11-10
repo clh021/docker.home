@@ -28,8 +28,21 @@ define("FS_CHMOD_FILE", 0777);
 
 开发扩展
 
-    `Advanced Custom Fields`繁简适宜、方便快捷的自定义字段管理
+    `Developer`官方出品的开发者开发插件，开发调试几乎别无所求，这是一个插件组
+    `cformsII - contact form`灵活强大可定制ajax表单
+    `Advanced Custom Fields`让站长繁简适宜、方便快捷的自定义字段
+    `Developer's Custom Fields`让开发者轻松灵活的定义字段
     `Page Builder`简单快速拖拽创建页面
+    `Baidu Maps Plugin`百度地图
+    `Google Map`谷歌地图 由SRMILON创建
+    `Theme Test Drive`安全的指定用户在线测试开发主题
+    `Plugin Test Drive`在不启用插件的情况下测试开发插件
+    `Debug Bar`一个调试面板可进行多种调试功能
+    `Log Deprecated Notices`不需要WP_DEBUG的情况下看日志
+    `Monster Widget`十三个核心部件的集合，方便快速的开发主题
+    `Regenerate Thumbnails`生成不同尺寸的图片缩略图，在切换或开发主题时非常方便
+    `Simply Show IDs`无处不在的ID也许能给你带来方便
+    `Query Monitor`记录所有请求并统计详情供分析
 
 后台界面
 
@@ -49,6 +62,7 @@ define("FS_CHMOD_FILE", 0777);
     `WP Super Cache`浏览器缓存、生成 HTML 副本
     `iThemes Security`保护网站安全
     `Clef Two-Factor Authentication`双重认证,通过手机同步来提供更快、更受保护的登录方式
-    `Regenerate Thumbnails`生成不同尺寸的图片缩略图
     `Akismet`反垃圾评论
     `WP Statistics`全面且实用的访问统计
+    `NextGEN Gallery`功能强大的相册幻灯片类
+    `Jetpack`需要链接wordpress的系列强大功能服务
