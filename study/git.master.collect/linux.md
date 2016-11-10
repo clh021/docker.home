@@ -1,8 +1,8 @@
 # 服务器初始化配置
 ```
 #添加管理员用户
-adduser lee #设置复杂的密码
-gpasswd -a lee sudo
+adduser username #设置复杂的密码
+gpasswd -a username sudo
 #禁用root远程登录
 nano /etc/ssh/sshd_config
 PermitRootLogin yes #yes 改为 no
