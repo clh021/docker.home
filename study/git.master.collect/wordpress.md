@@ -90,3 +90,25 @@ define("FS_CHMOD_FILE", 0777);
     `WP Statistics`全面且实用的访问统计
     `NextGEN Gallery`功能强大的相册幻灯片类
     `Jetpack`需要链接wordpress的系列强大功能服务
+
+服务器技巧
+```
+#快速禁用某网站
+sudo a2dissite <my-site>
+#服务命令
+sudo service apache2 reload
+sudo service apache2 restart
+#测试配置
+apache2ctl configtest
+#快速查看和修改.htaccess
+sudo nano /var/www/html/.htaccess
+#调试.htaccess
+RewriteLog logs/drupal001.com-rewrite.log #此处可以写绝对地址
+RewriteLogLevel 3
+#非正规调试.htaccess 可方便查看各种变量并轻松检查RewriteCond是否正确
+RewriteCond %{QUERY_STRING} vardump #http://url/?vardump
+RewriteRule (.*) http://www.baidu.com/?host=%{HTTP_HOST},rurl=%{REQUEST_URI} [R=301,L,QSA]
+#apache默认变量列表
+#HTTP_USER_AGENT HTTP_REFERER HTTP_COOKIE HTTP_FORWARDED HTTP_HOST HTTP_PROXY_CONNECTION HTTP_ACCEPT   REMOTE_ADDR REMOTE_HOST REMOTE_PORT REMOTE_USER REMOTE_IDENT REQUEST_METHOD SCRIPT_FILENAME PATH_INFO QUERY_STRING AUTH_TYPE   DOCUMENT_ROOT SERVER_ADMIN SERVER_NAME SERVER_ADDR SERVER_PORT SERVER_PROTOCOL SERVER_SOFTWARE   TIME_YEAR TIME_MON TIME_DAY TIME_HOUR TIME_MIN TIME_SEC TIME_WDAY TIME   API_VERSION THE_REQUEST REQUEST_URI REQUEST_FILENAME IS_SUBREQ HTTPS
+
+```
