@@ -11,8 +11,25 @@ sudo apt install php7.0-fileinfo php7.0-curl php7.0-gd php7.0-imap php7.0-intl p
 ```
 服务器配置(非必须)
 ```
-# /etc/apache2/sites-enabled/000-default.conf 文件 DocumentRoot /var/www/html 下一行添加：
-AllowOverride All
+<VirtualHost *:80>
+	#ServerName www.example.com #域名，ip访问可不配置
+	ServerAdmin webmaster@localhost #你的邮箱，错误页面可联系到你
+	DocumentRoot /var/www/html
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	<Directory "/var/www/html"> #添加用户认证
+        AuthType Basic
+        AuthName "Restricted Content"
+        AuthUserFile /etc/apache2/.htpasswd
+        #sudo htpasswd -c /etc/apache2/.htpasswd username #设置验证文件，你也可以改变目录
+        Require valid-user
+    </Directory>
+    <Directory /var/www/> #允许启用.htaccess
+	    Options Indexes FollowSymLinks
+	    AllowOverride All
+	    Require all granted
+	</Directory>
+</VirtualHost>
 ```
 验证好数据库配置，并按照提示手动创建wp-config.php文件，于最终安装好wordpress。
 安装好后，手动修改wordpress的wp-config.php配置文件
