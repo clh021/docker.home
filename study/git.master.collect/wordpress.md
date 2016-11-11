@@ -21,7 +21,7 @@ sudo apt install php7.0-fileinfo php7.0-curl php7.0-gd php7.0-imap php7.0-intl p
         AuthType Basic
         AuthName "Restricted Content"
         AuthUserFile /etc/apache2/.htpasswd
-        #sudo htpasswd -c /etc/apache2/.htpasswd username #设置验证文件，你也可以改变目录
+        #sudo htpasswd -c /etc/apache2/.htpasswd username #设置验证文件，或增加用户，[你也可以改变文件目录]
         Require valid-user
     </Directory>
     <Directory /var/www/> #允许启用.htaccess
