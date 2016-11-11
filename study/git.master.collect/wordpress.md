@@ -9,6 +9,11 @@ PHP环境
 sudo apt install php7.0 #deepin or install php5
 sudo apt install php7.0-fileinfo php7.0-curl php7.0-gd php7.0-imap php7.0-intl php7.0-json php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-odbc php7.0-pgsql php7.0-sqlite3 php7.0-xml php7.0-xmlrpc php7.0-zip#PHP扩展
 ```
+服务器配置(非必须)
+```
+# /etc/apache2/sites-enabled/000-default.conf 文件 DocumentRoot /var/www/html 下一行添加：
+AllowOverride All
+```
 验证好数据库配置，并按照提示手动创建wp-config.php文件，于最终安装好wordpress。
 安装好后，手动修改wordpress的wp-config.php配置文件
 ```
