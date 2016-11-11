@@ -48,7 +48,7 @@ define("FS_CHMOD_FILE", 0777);
 
 ## 技巧 × 精品插件 × 人见人爱
 
-开发扩展
+### 开发扩展
 
     `Developer`官方出品的开发者开发插件，开发调试几乎别无所求，这是一个插件组
     `cformsII - contact form`灵活强大可定制ajax表单
@@ -67,14 +67,15 @@ define("FS_CHMOD_FILE", 0777);
     `Query Monitor`记录所有请求并统计详情供分析
     `WordPress REST API (Version 2)`易于使用和理解的REST API，还包括基于Backbone模型的JavaScript API，允许插件和主题开发者使用
     `Hide My Wordpress`隐藏wordpress常规特征，可用于伪装，更可用于保护站点安全
+    
 
-后台界面
+### 后台界面
 
     `ag-custom-admin`管理后台界面个性化定制
     `Admin Menu Editor`管理后台界面可见性工具，有可视化视图
     `TinyMCE Advanced`编辑器更强大好看，支持ajax保存
   
-功能扩展
+### 功能扩展
 
     `bbPress`论坛功能
     `WooCommcerce`在线商店，稳定，可靠，功能强大
@@ -91,7 +92,8 @@ define("FS_CHMOD_FILE", 0777);
     `NextGEN Gallery`功能强大的相册幻灯片类
     `Jetpack`需要链接wordpress的系列强大功能服务
 
-服务器技巧
+### 服务器技巧
+
 ```
 #快速禁用某网站
 sudo a2dissite <my-site>
@@ -110,5 +112,21 @@ RewriteCond %{QUERY_STRING} vardump #http://url/?vardump
 RewriteRule (.*) http://www.baidu.com/?host=%{HTTP_HOST},rurl=%{REQUEST_URI} [R=301,L,QSA]
 #apache默认变量列表
 #HTTP_USER_AGENT HTTP_REFERER HTTP_COOKIE HTTP_FORWARDED HTTP_HOST HTTP_PROXY_CONNECTION HTTP_ACCEPT   REMOTE_ADDR REMOTE_HOST REMOTE_PORT REMOTE_USER REMOTE_IDENT REQUEST_METHOD SCRIPT_FILENAME PATH_INFO QUERY_STRING AUTH_TYPE   DOCUMENT_ROOT SERVER_ADMIN SERVER_NAME SERVER_ADDR SERVER_PORT SERVER_PROTOCOL SERVER_SOFTWARE   TIME_YEAR TIME_MON TIME_DAY TIME_HOUR TIME_MIN TIME_SEC TIME_WDAY TIME   API_VERSION THE_REQUEST REQUEST_URI REQUEST_FILENAME IS_SUBREQ HTTPS
-
 ```
+
+### 开发者资料
+
+[themehybrid](http://themehybrid.com/themes/hybrid-child) 全息开发框架，二次开发主题，主题继承，貌似也支持插件开发
+[plaintxt](http://www.plaintxt.org/) 各种排版的空白主题，可快速定制自己想要的[主题](https://wordpress.org/themes/sandbox/)
+[官方主题手册之模板层次](https://developer.wordpress.org/themes/basics/template-hierarchy/) 详细讲解页面继承关系和提供的钩子
+[官方插件手册](https://developer.wordpress.org/plugins/) 
+[官方代码函数库](https://codex.wordpress.org/)
+[主题选项框架](https://wordpress.org/plugins/options-framework/)
+[generatewp](https://generatewp.com) 代码生成工具
+[underscores](http://underscores.me/) 功能全面，理解简单的主题，非常适合二次开发
+[foundation](http://foundation.zurb.com/) 响应式网页设计,除了bootstrap还可以考虑它
+[theme-check](https://wordpress.org/plugins/theme-check/) 开发主题时常检查是个好习惯
+[官方Theme_Unit_Test](https://codex.wordpress.org/Theme_Unit_Test) 测试数据，让主题更完美
+[html5blank](http://html5blank.com/) 最值得二次开发的空白主题
+[jiustore](https://www.jiustore.com/) 6.5小时主题视频教程变成主题制作高手同时会子主题开发 [jiufree](https://www.jiufree.com/) [jiuwp](http://www.jiuwp.com/)
+[设计窝](http://www.shejiwo.net/) 主题定制服务
