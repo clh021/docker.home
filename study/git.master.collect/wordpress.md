@@ -130,3 +130,5 @@ RewriteRule (.*) http://www.baidu.com/?host=%{HTTP_HOST},rurl=%{REQUEST_URI} [R=
 [html5blank](http://html5blank.com/) 最值得二次开发的空白主题
 [jiustore](https://www.jiustore.com/) 6.5小时主题视频教程变成主题制作高手同时会子主题开发 [jiufree](https://www.jiufree.com/) [jiuwp](http://www.jiuwp.com/)
 [设计窝](http://www.shejiwo.net/) 主题定制服务
+
+> 使用人数众多的大都是值得一试的好东西，它可以大量节省你的时间精力；但是更好更适合你的东西却不一定使用人数众多，因为有痛点才会有更好的产品，新出来的产品正在等待验证。人应该无时无刻注意到节省自己的时间精力，提高效率，提高产出。借势而为，借力使力，站在巨人的肩膀上向前走，人类才一步步实现了今天科技的进步。
