@@ -43,6 +43,8 @@ define("FS_CHMOD_FILE", 0777);
     `Regenerate Thumbnails`生成不同尺寸的图片缩略图，在切换或开发主题时非常方便
     `Simply Show IDs`无处不在的ID也许能给你带来方便
     `Query Monitor`记录所有请求并统计详情供分析
+    `WordPress REST API (Version 2)`易于使用和理解的REST API，还包括基于Backbone模型的JavaScript API，允许插件和主题开发者使用
+    `Hide My Wordpress`隐藏wordpress常规特征，可用于伪装，更可用于保护站点安全
 
 后台界面
 
