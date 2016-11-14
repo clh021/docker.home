@@ -19,6 +19,7 @@ fdisk -l #查看分区情况是否符合自己的想法，如果不对就重复�
 mkfs.ext4 /dev/xvdb1 #格式化好你的硬盘，创建文件系统
 vi /etc/fstab #设置开机启动 "/dev/xvdb1    /mnt    ext4    defaults    0    0"
 mount /dev/xvdb1 /mnt #或者手动挂载
+mkdir -p /mnt && rm -fr /var/www/html && ln -s /mnt /var/www/html
 ```
 
 日常使用
