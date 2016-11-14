@@ -12,7 +12,7 @@ sudo apt install php7.0-fileinfo php7.0-curl php7.0-gd php7.0-imap php7.0-intl p
 
 # debian php5
 apt install php5
-apt install php5-curl php5-gd php5-imap php5-imagick php5-intl php5-json php7.0-mbstring php5-mcrypt php5-mysql php5-pgsql php5-sqlite php5-ssh2 php5-xmlrpc php5-zip
+apt install php-file php5-curl php5-gd php5-imap php5-imagick php5-intl php5-json php5-mcrypt php5-mysql php5-pgsql php5-sqlite php5-ssh2 php5-xmlrpc
 ```
 服务器配置(非必须)
 ```
