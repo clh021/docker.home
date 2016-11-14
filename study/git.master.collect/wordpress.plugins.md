@@ -2,3 +2,4 @@
 - Admin Menu Editor
 - Admin Page Framework - Loader
 - User Role Editor
+- Redux Framework
