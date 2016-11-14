@@ -39,6 +39,11 @@ apt install php-file php5-curl php5-gd php5-imap php5-imagick php5-intl php5-jso
 验证好数据库配置，并按照提示手动创建wp-config.php文件，于最终安装好wordpress。
 安装好后，手动修改wordpress的wp-config.php配置文件
 ```
+//设置域名
+$home = 'http://'.$_SERVER['HTTP_HOST'];
+$siteurl = 'http://'.$_SERVER['HTTP_HOST'];
+define('WP_HOME', $home);
+define('WP_SITEURL', $siteurl);
 //设置本地语言为中文
 define('WPLANG', 'zh_CN');
 //设置本地文件读写模式，不使用ftp方式安装插件和主题 
