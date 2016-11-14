@@ -57,7 +57,14 @@ define("FS_CHMOD_FILE", 0777);
 获取本地化完成后，可更新各个主题插件的翻译。
 
 ## 技巧 × 精品插件 × 人见人爱
-
+### 开发技巧
+- 开发调试显示错误
+	```
+	if ( current_user_can( 'manage_options' ) ) {
+	    define('WP_DEBUG_DISPLAY', true);
+	    @ini_set('display_errors', 1);
+	}
+	```
 ### 开发扩展
 - `Developer`官方出品的开发者开发插件，开发调试几乎别无所求，这是一个插件组
 - `cformsII - contact form`灵活强大可定制ajax表单
