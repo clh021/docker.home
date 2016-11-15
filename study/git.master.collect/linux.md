@@ -28,4 +28,6 @@ mkdir -p /mnt && rm -fr /var/www/html && ln -s /mnt /var/www/html
 sudo apt-get install fonts-wqy-zenhei
 #.bashrc末尾
 PS1='\[\e[32m\]\# [\e[33m\D{%Y-%m-%d %T}]\[\e[31m\]\u\[\e[m\]@shenzhen\[\e[36m\]\h\[\e[32m\]\w\[\e[m\]\n\$ '
+#端口转发
+ssh -f -N -D 0.0.0.0:port username@hkserver -p22
 ```
