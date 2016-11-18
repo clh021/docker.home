@@ -11,6 +11,7 @@
 - [Custom DataBase Tables](https://wordpress.org/plugins/custom-database-tables/) By ka2
 - [Tabulate](https://wordpress.org/plugins/tabulate/) By samwilson
 - [WPF-jqGrid](https://cn.wordpress.org/plugins/wp-fjqgrid/) By faina09
+- [wpDataTables Lite](https://wordpress.org/plugins/wpdatatables/) By wpDataTables
 
 ## 优化
 - [AMP](https://wordpress.org/plugins/amp/) By Automattic
