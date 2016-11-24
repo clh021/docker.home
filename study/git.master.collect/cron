@@ -1,0 +1,8 @@
+# 打开浏览器
+export DISPLAY=:0.0 && chromium-browser http://bbs.dongshenghuo.com
+# 打开音乐播放器
+#env DISPLAY=:0.0 audacious wodegeshengli.mp3
+# 打开视频播放器
+#env DISPLAY=:0.0 gnome-mplayer wodegeshengli.mp3
+# 写入指定文件
+echo "成功啦！快看看啦！" >> 1.txt
