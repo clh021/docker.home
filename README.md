@@ -1,4 +1,4 @@
-> `git clone --depth=1 https://github.com/clh021/docker.home.git`
+> `git clone --depth=1 https://username@github.com/username/repository.git` 只拉最新代码且不要每次输用户名 `git clone --depth=1 https://clh021@github.com/clh021/docker.home.git`
 
 ### 服务器服务端口修改
 ```
