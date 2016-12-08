@@ -23,6 +23,8 @@ systemctl enable nginx.service #ln -s '/usr/lib/systemd/system/nginx.service' '/
 ```
 ###快捷服务器命令
 ```
+#批量解压当前目录下的7z文件
+find . -name "*.7z" -type f| xargs -I {} 7z x {} -ppassword
 #备份数据库
 mysqldump -uroot -proot wetrip > /wetrip/wetripdev/wetripdev_sql_$(date +%Y%m%d_%H%M%S).sql\r
 
