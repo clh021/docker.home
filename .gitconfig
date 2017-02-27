@@ -8,3 +8,7 @@
         diff = auto
         branch = auto
         interactive = auto
+[https]
+	proxy = socks5://proxy.main.url:7021
+[http]
+	proxy = socks5://proxy.main.url:7021

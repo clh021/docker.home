@@ -7,3 +7,7 @@ do
     7za a $prefix.$args.7z $args -pSECRET
 done
 # mytar folder1 [folder2 [folder3 ...]]
+
+批量解压缩
+#find . -name "*.js" -exec 7z -pSECRET a {}.7z {} \;
+#find . -name "*.js.7z" -exec 7z -pSECRET x {} \;

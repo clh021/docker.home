@@ -1,0 +1,35 @@
+[Desktop Entry]
+Name=Text Editor
+Name[zh_CN]=文本编辑器
+Comment=Edit text files
+Comment[zh_CN]=编辑文本文件
+Exec=gedit %U
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=text/plain;
+Icon=gedit
+Categories=GNOME;GTK;Utility;TextEditor;
+X-GNOME-DocPath=gedit/gedit.xml
+X-GNOME-FullName=Text Editor
+X-GNOME-FullName[zh_CN]=文本编辑器
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gedit
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=3.20.1
+X-GNOME-Bugzilla-ExtraInfoScript=/usr/share/gedit/gedit-bugreport
+Actions=new-window;new-document;
+Keywords=Text;Editor;
+Keywords[zh_CN]=文本;编辑器;Text;Editor;
+DBusActivatable=true
+Hidden=true
+
+[Desktop Action new-window]
+Name=Open a New Window
+Name[zh_CN]=打开新窗口
+Exec=gedit --new-window
+
+[Desktop Action new-document]
+Name=Open a New Document
+Name[zh_CN]=打开新文档
+Exec=gedit --new-document

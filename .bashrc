@@ -17,3 +17,9 @@ alias .....='cd ../../../..'
 # git config --global color.diff auto
 # git config --global color.branch auto
 # git config --global color.interactive auto
+
+PATH="/home/lee/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/lee/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/lee/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/lee/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/lee/perl5"; export PERL_MM_OPT;
