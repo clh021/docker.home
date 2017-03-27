@@ -1,8 +1,9 @@
 # linuxmint 笔记
 - install linuxmint18
 - set software and driver mirrors from aliyun
+
 - change host
-    ```
+```
 sudo apt install chromium-browser chromium-browser-l10n
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb && sudo gdebi -n chrome.deb
 #https://raw.githubusercontent.com/racaljk/hosts/master/hosts
@@ -28,16 +29,20 @@ ff02::2 ip6-allrouters' >> /etc/hosts
     #     exit 2
     # fi
 }
-    ```
+```
+
 - double click to install sogou input software
-    ```
-    wget -c "http://pinyin.sogou.com/linux/download.php?f=linux&bit=64" -O sogou.deb && sudo gdebi -n sogou.deb
-    ```
+```
+wget -c "http://pinyin.sogou.com/linux/download.php?f=linux&bit=64" -O sogou.deb && sudo gdebi -n sogou.deb
+```
+
 - 登录 浏览器 google 账号
+
 - 安装开发工具 `docker`
-    ```
-    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
-    ```
+```
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+```
+
 - 配置我的 `docker` [加速](https://cr.console.aliyun.com/?#/docker/booster)
 - 检索下载自己常用的 `docker images`
 - 安装 `sudo apt install virtualbox virtualbox-qt virtualbox-ext-pack`
