@@ -1,0 +1,10 @@
+title ubuntu-16.04.2-desktop-amd64
+find --set-root /ISOS/ubuntu-16.04.2/vmlinuz.efi
+kernel /ISOS/ubuntu-16.04.2/vmlinuz.efi boot=casper iso-scan/filename=/ISOS/ubuntu-16.04.2-desktop-amd64.iso ro quiet splash locale=zh_CN.UTF-8 persistent  persistent-path=/ISOS
+initrd /ISOS/ubuntu-16.04.2/initrd.lz
+
+title reboot
+reboot
+
+title poweroff
+halt
