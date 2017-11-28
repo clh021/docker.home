@@ -3,7 +3,6 @@ FROM node:latest
 RUN git clone https://github.com/akveo/ngx-admin.git /var/www \
     && cd /var/www \
     && npm install --global rimraf \
-    && npm run clean \
     && npm install --global webpack webpack-dev-server typescript \
     && npm install \
     && npm run prebuild:prod && npm run build:prod
