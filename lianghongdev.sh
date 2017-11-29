@@ -9,7 +9,12 @@ MENUS=(install_something docker_run_lamp docker_rm_lamp);
 INSTALL_MENUS=(alidebian aliubuntu inst_docker inst_composer inst_phpcs inst_phpmd inst_nodejs_grunt_yeoman_bower inst_memcache inst_redis conf_php_env php_exts inst_ssh inst_git_vim_wget_curl echoclrs inst_xdebug)
 DOCKER_MENUS=()
 # ==================================================
-
+inst_c_yarn(){
+    npm config set registry "https://registry.npm.taobao.org"
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
+    yarn config set registry https://registry.npm.taobao.org
+    yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
+}
 inst_docker(){
     apt update;\
     apt-get install curl;\
