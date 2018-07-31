@@ -16,26 +16,26 @@ RUN yum install -y wget \
  && wget -O install.sh http://download.bt.cn/install/install.sh \
  && sed -i 's/read -p "Do you want to install Bt-Panel to the $setup_path directory now?(y\/n): " go;/go="y"/g' install.sh \
  && sed -i 's/password=`cat \/dev\/urandom | head -n 16 | md5sum | head -c 8`/password="$ADMIN_PASSWOD"/g' install.sh \
- && sh install.sh \
- && chmod +x /start.sh \
+ && sh install.sh
+RUN chmod +x /start.sh \
  && echo '$APACHE_VERSION' > /var/bt_apacheVersion.pl \
- && echo '/www' > /var/bt_setupPath.conf \
- && cd /www/server/panel/install \
+ && echo '/www' > /var/bt_setupPath.conf
+RUN cd /www/server/panel/install \
  && /bin/bash install_soft.sh $INSTALL_MODE install apache $APACHE_VERSION \
  && /bin/bash install_soft.sh $INSTALL_MODE install mysql $MYSQL_VERSION \
  && /bin/bash install_soft.sh $INSTALL_MODE install pure-ftpd $PUREFTPD_VERSION \
- && /bin/bash install_soft.sh $INSTALL_MODE install php $PHP_VERSION \
- && wget -O phpmyadmin.sh http://download.bt.cn/install/$INSTALL_MODE/phpmyadmin.sh  \
- && sed -i 's/firewall-cmd/echo firewall-cmd/' ./phpmyadmin.sh \
- && bash phpmyadmin.sh install $PHPMYADMIN_VERSION \
+ && /bin/bash install_soft.sh $INSTALL_MODE install php $PHP_VERSION
+RUN wget -O phpmyadmin.sh http://download.bt.cn/install/$INSTALL_MODE/phpmyadmin.sh  \
+ && sed -i 's/firewall-cmd/echo firewall-cmd/' ./phpmyadmin.sh
+RUN bash phpmyadmin.sh install $PHPMYADMIN_VERSION \
  && sed -i 's/# ForcePassiveIP                192.168.0.1/ForcePassiveIP                0.0.0.0/' /www/server/pure-ftpd/etc/pure-ftpd.conf \
- && sed -i 's/PassivePortRange          39000 40000/PassivePortRange          39000 39050/' /www/server/pure-ftpd/etc/pure-ftpd.conf \
- && /etc/init.d/bt stop \
+ && sed -i 's/PassivePortRange          39000 40000/PassivePortRange          39000 39050/' /www/server/pure-ftpd/etc/pure-ftpd.conf
+RUN /etc/init.d/bt stop \
  && /etc/init.d/httpd stop \
  && /etc/init.d/pure-ftpd stop \
  && /etc/init.d/mysqld stop \
- && /etc/init.d/php-fpm-56 stop \
- && chown -R mysql:mysql /www/server/data \
+ && /etc/init.d/php-fpm-56 stop
+RUN chown -R mysql:mysql /www/server/data \
  && chown -R mysql:mysql /www/server/mysql \
  && rm -f /www/server/data/mysql-bin.* \
  && rm -f /www/server/data/ib_* \
