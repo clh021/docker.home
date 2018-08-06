@@ -1,0 +1,26 @@
+version: '2'
+services:
+    app:
+        extends:
+            file: docker-compose.base.yml
+            service: app
+        ports:
+            - "80:80"
+    mysql:
+        extends:
+            file: docker-compose.base.yml
+            service: mysql
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "www"
+            MYSQL_USER: "user"
+            MYSQL_PASSWORD: "pass"
+networks:
+    wpnet:
+        driver: "bridge"
+volumes:
+    mysqldata:
+        driver: "local"
+    
