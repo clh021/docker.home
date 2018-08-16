@@ -22,6 +22,8 @@ fi
 if [ -d "$HOME/.config/composer/vendor/bin" ] ; then
     PATH="$HOME/.config/composer/vendor/bin:$PATH"
 fi
-
+if [ -d "$HOME/.npm-global/bin/" ] ; then
+    PATH="$HOME/.npm-global/bin/:$PATH"
+fi
 
 

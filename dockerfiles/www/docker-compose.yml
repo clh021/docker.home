@@ -1,0 +1,30 @@
+version: '3.3'
+# 测试镜像本身时用
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: somewordpress
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+    selenium:
+        image: selenium/standalone-chrome:3.0.1-fermium
+        # extra_hosts:
+        #     - laravel.dev:${DOCKER_PROXY_HOST}
+    html:
+        depends_on:
+            - selenium
+            - db
+        # image: leehom/www:latest
+        image: registry.cn-hongkong.aliyuncs.com/leehom/www:nodejs_php_go
+        command: tail -f /dev/null
+        ports:
+            - "80:80"
+        links:
+            - selenium
+        environment:
+           WORDPRESS_DB_HOST: db:3306
+           WORDPRESS_DB_USER: wordpress
+           WORDPRESS_DB_PASSWORD: wordpress
+           WORDPRESS_TABLE_PREFIX: www_

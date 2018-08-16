@@ -1,0 +1,75 @@
+[push]
+	default = simple
+[user]
+	name = chenlianghong
+	email = clh021@gmail.com
+[git-ftp "menhu"]
+	user = bxu2442260154
+	password = 1234
+	syncroot = ./dowob/assets
+	url = ftp://bxu2442260154.my3w.com/menhu/
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+[color "diff"]
+	meta = blue
+	frag = black
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+#[branch]
+#	autosetuprebase = remote
+#[branch "master"]
+#	remote = origin
+#	merge = refs/heads/master
+#	mergeoptions = --no-ff
+[log]
+	decorate = short
+#[https]
+#	proxy = socks5://web.womenxing.com:7021
+#[http]
+#	proxy = socks5://web.womenxing.com:7021
+[credential]
+	helper = store
+[alias]
+	lgdo = log --decorate --oneline
+	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg3 = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	lg4 = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+	co = checkout
+	ci = commit
+	st = "!func(){ git pull && git status;};func"
+	br = branch
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	type = cat-file -t
+	dump = cat-file -p
+	cia = commit --amend
+	ciah = commit --amend -C HEAD # 修改commit内容但不修改commit信息
+	df = diff
+	dfc = diff --cached
+	dtr = diff-tree --no-commit-id --name-only -r
+	dst = diff --name-status
+	ffm = merge --ff-only
+	nem = merge --no-edit
+	mgab = merge --abort
+	rs = reset
+	rsh = reset --hard
+	rshp = reset --hard HEAD^
+	rss = reset --soft
+	ss = stash
+	ssp = stash pop
+	ssd = stash drop
+[oh-my-zsh]
+	hide-status = 1
