@@ -3,41 +3,32 @@ MAINTAINER clh021@gmail.com
 # 这是一个基于wordpress镜像构建的主力工作镜像
 # source 优化
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-
+RUN sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list
 # 安装常用程序
-# 安装nodejs基础库
-RUN apt-get update \
-    && apt-get install -y -q --no-install-recommends vim wget tree htop curl git golang sshpass zip unzip \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
-RUN apt-get update \
-    && apt-get install -y -q --no-install-recommends build-essential gnupg \
+# apt-transport-https 可使https(比如源)免运营商劫持
+RUN apt update \
+    && apt install -y -q --no-install-recommends vim wget tree htop curl git golang sshpass zip unzip apt-transport-https\
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+    && apt clean
+# 安装官方谷歌浏览器
+# 使用： google-chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 https://baidu.com
+# 检查： curl http://localhost:9222 包含调试信息即可
+# RUN apt update \
+#     && apt install -y apt-transport-https ca-certificates curl gnupg --no-install-recommends \
+# 	&& curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+# 	&& echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
+# 	&& apt update \
+# 	&& apt install -y google-chrome-stable --no-install-recommends \
+# 	&& apt purge --auto-remove -y gnupg \
+# 	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+#     && apt clean
+# 安装官方nodejs
+RUN apt update \
+    && apt install -y -q --no-install-recommends build-essential gnupg \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    && apt-get install -y -q --no-install-recommends nodejs \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
-# RUN apt-get install -y -q --no-install-recommends \
-#         libgconf-2-4 \
-#         rsync \
-#         apt-transport-https \
-#         build-essential \
-#         ca-certificates \
-#         ssl-cert \
-#         libssl-dev \
-#         python \
-#         software-properties-common \
-#         devscripts \
-#         autoconf \
-#         default-jdk \
-#     && rm -rf /var/lib/apt/lists/* \
-#     && apt-get clean
-# 谷歌官方
-# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-#     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-#     && apt-get update \
-#     && apt-get install -y google-chrome-unstable --no-install-recommends \
-#     && rm -rf /var/lib/apt/lists/* \
-#     && apt-get clean
+    && apt install -y -q --no-install-recommends nodejs \
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+    && apt clean
 # 常用组件程序 composer wp
 RUN cd /usr/local/bin/ && /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php
 RUN /bin/mv /usr/local/bin/composer.phar /usr/local/bin/composer
@@ -46,7 +37,7 @@ RUN sed -i 's/www:\/usr\/sbin\/nologin/www:\/bin\/bash/g' /etc/passwd
 RUN chown www-data:www-data -Rf /var/www
 USER www-data
 # 工具
-RUN mkdir /var/www/kod/ && mkdir /var/www/html/_/ && wget -O /var/www/kod/kod.zip http://static.kodcloud.com/update/download/kodexplorer4.32.zip && unzip /var/www/kod/kod.zip -d /var/www/kod/
+RUN mkdir /var/www/kod/ && wget -O /var/www/kod/kod.zip http://static.kodcloud.com/update/download/kodexplorer4.32.zip && unzip /var/www/kod/kod.zip -d /var/www/kod/ && rm -f /var/www/kod/kod.zip
 # 设置composer镜像地址
 RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 # 安装常用库
@@ -61,7 +52,6 @@ RUN composer global require "laravel/installer"
 COPY .bashrc /var/www/
 COPY .gitignore /var/www/
 COPY .gitconfig /var/www/
-COPY puppeteer.test.js /var/www/
 COPY .npmrc /var/www/
 USER root
 RUN chown www-data:www-data /var/www/.bashrc /var/www/.gitignore /var/www/.gitconfig /var/www/.npmrc
